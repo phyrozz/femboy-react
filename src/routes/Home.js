@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/navBar';
 import '../App.css';
-import ReactTyped from 'react-typed';
+import { TypeAnimation } from 'react-type-animation';
 import Card from '../components/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImages, faNewspaper, faCompass, faPersonDigging,  } from '@fortawesome/free-solid-svg-icons';
 import headingTexts from '../data/headingTexts.json';
 import headingImages from '../data/headingImages.json';
+import SyncLoader from 'react-spinners/SyncLoader';
 
 const galleryIcon = <FontAwesomeIcon icon={faImages} transform='grow-36' inverse />
 const doujinIcon = <FontAwesomeIcon icon={faNewspaper} transform='grow-36' inverse />
@@ -17,13 +18,25 @@ const discordIcon = <img src={require('../images/discord-icon.png')} alt='Discor
 function Home() {
     const [randomText, setRandomText] = useState("");
     const [randomImage, setRandomImage] = useState("home_container-1.png");
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const randomIndex = Math.floor(Math.random() * headingTexts.length);
-        setRandomText(headingTexts[randomIndex]);
-        const randomImageIndex = Math.floor(Math.random() * headingImages.length);
-        setRandomImage(headingImages[randomImageIndex]);
+        setTimeout(() => {
+            const randomIndex = Math.floor(Math.random() * headingTexts.length);
+            setRandomText(headingTexts[randomIndex]);
+            const randomImageIndex = Math.floor(Math.random() * headingImages.length);
+            setRandomImage(headingImages[randomImageIndex]);
+            setIsLoading(false);
+        }, 0);
     }, []);
+
+    if (isLoading) {
+        return (
+            <div className='flex flex-col justify-center items-center gap-5 h-screen'>
+                <SyncLoader loading={isLoading} size={30} color="rgb(219, 39, 119)" />
+            </div>
+        );
+    }
 
     return (
     <>
@@ -35,7 +48,7 @@ function Home() {
             className="object-cover bg-blend-darken opacity-50 w-full h-full"
             />
             <div className='absolute top-1/2 left-3 -translate-y-1/2 w-3/4 md:w-1/2 text-left'>
-                <ReactTyped className='mt-4 text-slate-100 font-thin text-5xl md:text-7xl' strings={[randomText]} typeSpeed={100}/>
+                <TypeAnimation className='mt-4 text-slate-100 font-thin text-5xl md:text-7xl' sequence={[randomText]} />
                 <p className='mt-5 text-sm text-slate-100 font-thin md:text-xl'>From Astolfo of Fate Series to Mahiro-tan, all of your favorite femboy characters in anime/manga are here for you to explore and even discover!</p>
             </div>
         </div>

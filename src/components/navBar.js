@@ -44,27 +44,27 @@ function Navbar() {
       <div className="container mx-auto flex justify-between items-center">
         <ul className="flex justify-center">
           <a href='/'>
-            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition">
+            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center">
               {homeIcon} Home
             </li>
           </a>
           <a href='/gallery'>
-            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition">
+            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center">
               {galleryIcon} Gallery
             </li>
           </a>
           <a href='/doujins'>
-            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition">
+            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center">
               {doujinIcon} Doujins
             </li>
           </a>
           <a href='/explore'>
-            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition">
+            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center">
               {exploreIcon} Explore
             </li>
           </a>
         </ul>
-        <div className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition">
+        <div className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center">
           <a className='flex flex-wrap flex-row justify-center items-center gap-2' href="https://discord.gg/CKhwKtDK" target='_blank' rel="noreferrer">
             Join the Community
             <img src={discordIconImage} alt="Discord Icon" className="w-6" />
