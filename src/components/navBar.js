@@ -66,8 +66,9 @@ function Navbar() {
         </ul>
         <div className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center">
           <a className='flex flex-wrap flex-row justify-center items-center gap-2' href="https://discord.gg/CKhwKtDK" target='_blank' rel="noreferrer">
-            Join the Community
+            <p className='hidden md:block'>Join the Community</p>
             <img src={discordIconImage} alt="Discord Icon" className="w-6" />
+            <p className='block md:hidden'>Join</p>
           </a>
         </div>
       </div>
