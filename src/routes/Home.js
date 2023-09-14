@@ -55,7 +55,7 @@ function Home() {
         </div>
         <div className='flex gap-0 sm:gap-4 m-0 sm:m-5 flex-wrap justify-center'>
             <Card href='/gallery' headerText='Gallery' text='Check out artworks of your favorite femboy character.' image='mahiro-card.jpg' altImage='https://twitter.com/ixy/status/1700066663868375195' icon={galleryIcon} />
-            <Card href='/doujins' headerText='Doujins (R-18)' text='Check out doujins of your favorite femboy character.' image='bridget-card.jpg' altImage='https://twitter.com/click_burgundy/status/1698206122853978427' icon={doujinIcon} />
+            <Card href='/doujins' headerText='Doujins' text='Check out doujins of your favorite femboy character.' image='bridget-card.jpg' altImage='https://twitter.com/click_burgundy/status/1698206122853978427' icon={doujinIcon} />
             <Card href='/explore' headerText='Explore' text='Explore the site and discover more femboys.' image='venti-card.jpg' altImage='https://twitter.com/mashiraion/status/1700992548439998835' icon={exploreIcon} />
             <Card href='https://discord.gg/CKhwKtDK' headerText='Join The Community' text='Join the Femboy Paradise community on Discord.' image='freminet-card.jpg' altImage='https://twitter.com/orillust/status/1700301645656277381' icon={discordIcon} />
         </div>

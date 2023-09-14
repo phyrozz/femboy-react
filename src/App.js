@@ -6,12 +6,14 @@ import Doujins from './routes/Doujins';
 import Explore from './routes/Explore';
 import NotFound from './routes/NotFound';
 import ExplicitMessage from './routes/ExplicitMessage';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   // Check if the user has visited the explicit page
   const hasVisitedOneTimePage = sessionStorage.getItem('visitedOneTimePage');
 
   return (
+    <>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,6 +32,8 @@ function App() {
         <Route component={NotFound} />
       </Routes>
     </BrowserRouter>
+    <Analytics />
+    </>
   );
 }
 
