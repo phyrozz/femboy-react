@@ -4,7 +4,7 @@ import '../App.css';
 import { TypeAnimation } from 'react-type-animation';
 import Card from '../components/card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImages, faNewspaper, faCompass, faPersonDigging,  } from '@fortawesome/free-solid-svg-icons';
+import { faImages, faNewspaper, faCompass, faPersonDigging, faAtom } from '@fortawesome/free-solid-svg-icons';
 import headingTexts from '../data/headingTexts.json';
 import headingImages from '../data/headingImages.json';
 import SyncLoader from 'react-spinners/SyncLoader';
@@ -13,6 +13,7 @@ const galleryIcon = <FontAwesomeIcon icon={faImages} transform='grow-36' inverse
 const doujinIcon = <FontAwesomeIcon icon={faNewspaper} transform='grow-36' inverse />
 const exploreIcon = <FontAwesomeIcon icon={faCompass} transform='grow-36' inverse />
 const constructionIcon = <FontAwesomeIcon icon={faPersonDigging} transform='grow-18' />
+const reactIcon = <FontAwesomeIcon icon={faAtom} transform='grow-18' />
 const discordIcon = <img src={require('../images/discord-icon.png')} alt='Discord Icon' className='-m-3' width={86} />
 
 function Home() {
@@ -54,7 +55,7 @@ function Home() {
         </div>
         <div className='flex gap-0 sm:gap-4 m-0 sm:m-5 flex-wrap justify-center'>
             <Card href='/gallery' headerText='Gallery' text='Check out artworks of your favorite femboy character.' image='mahiro-card.jpg' altImage='https://twitter.com/ixy/status/1700066663868375195' icon={galleryIcon} />
-            <Card href='/doujins' headerText='Doujins (R-18)' text='Check doujins of your favorite femboy character.' image='bridget-card.jpg' altImage='https://twitter.com/click_burgundy/status/1698206122853978427' icon={doujinIcon} />
+            <Card href='/doujins' headerText='Doujins (R-18)' text='Check out doujins of your favorite femboy character.' image='bridget-card.jpg' altImage='https://twitter.com/click_burgundy/status/1698206122853978427' icon={doujinIcon} />
             <Card href='/explore' headerText='Explore' text='Explore the site and discover more femboys.' image='venti-card.jpg' altImage='https://twitter.com/mashiraion/status/1700992548439998835' icon={exploreIcon} />
             <Card href='https://discord.gg/CKhwKtDK' headerText='Join The Community' text='Join the Femboy Paradise community on Discord.' image='freminet-card.jpg' altImage='https://twitter.com/orillust/status/1700301645656277381' icon={discordIcon} />
         </div>
@@ -62,9 +63,15 @@ function Home() {
             {constructionIcon}
             <p className='font-bold mt-3'>More features coming soon!</p>
         </div>
-        <div className='bg-slate-50 p-6 text-center'>
-            <p className='font-light text-2xl'>femboys.io</p>
-            <p className='text-sm'>Developed by Phyrozz</p>
+        <div className='bg-slate-50 p-6 text-center flex justify-around items-center'>
+            <div>
+                <p className='font-light text-2xl'>femboys.io</p>
+                <p className='text-sm'>Developed by Phyrozz</p>
+            </div>
+            <div className='flex gap-4'>
+                {reactIcon}
+                <p className='text-sm'>Powered by <b>React</b></p>
+            </div>
         </div>
     </>
   );
