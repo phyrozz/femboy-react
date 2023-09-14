@@ -44,33 +44,31 @@ function Navbar() {
       <div className="container mx-auto flex justify-between items-center">
         <ul className="flex justify-center">
           <a href='/'>
-            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center">
-              {homeIcon} Home
+            <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
+              {homeIcon}<p>Home</p>
             </li>
           </a>
           <a href='/gallery'>
-            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center">
-              {galleryIcon} Gallery
+            <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
+              {galleryIcon}<p>Gallery</p>
             </li>
           </a>
           <a href='/doujins'>
-            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center">
-              {doujinIcon} Doujins
+            <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
+              {doujinIcon}<p>Doujins</p>
             </li>
           </a>
           <a href='/explore'>
-            <li className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center">
-              {exploreIcon} Explore
+            <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
+              {exploreIcon}<p>Explore</p>
             </li>
           </a>
         </ul>
-        <div className="px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center">
-          <a className='flex flex-wrap flex-row justify-center items-center gap-2' href="https://discord.gg/CKhwKtDK" target='_blank' rel="noreferrer">
-            <p className='hidden md:block'>Join the Community</p>
-            <img src={discordIconImage} alt="Discord Icon" className="w-6" />
-            <p className='block md:hidden'>Join</p>
-          </a>
-        </div>
+        <a className='px-2 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row' href="https://discord.gg/CKhwKtDK" target='_blank' rel="noreferrer">
+          <p className='hidden md:block'>Join the Community</p>
+          <img src={discordIconImage} alt="Discord Icon" className="w-5" />
+          <p className='block md:hidden'>Join</p>
+        </a>
       </div>
     </nav>
   );

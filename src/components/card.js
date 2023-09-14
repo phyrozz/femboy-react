@@ -11,8 +11,8 @@ function Card(props) {
     const href = props.href;
 
     return (
-        <a href={href} className='group transition ease-in-out hover:scale-105 relative'>
-            <div className='overflow-hidden bg-black drop-shadow-xl rounded-0 sm:rounded-lg sm:w-96 h-72 w-screen'>
+        <a href={href} className='group transition ease-in-out lg:hover:scale-105 relative'>
+            <div className='overflow-hidden bg-black drop-shadow-xl rounded-0 lg:rounded-lg lg:w-96 h-72 w-screen'>
                 <img
                 src={require('../images/' + image)}
                 alt={altImage}

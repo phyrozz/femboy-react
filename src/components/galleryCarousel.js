@@ -1,15 +1,16 @@
 import React from 'react';
 import '../App.css';
 
-function ImageCard(props) {
+function GalleryCarousel(props) {
     // Component props
     const href = props.href;
+    const text = props.text;
     const previewImage = props.previewImage;
     const altImage = props.altImage;
 
     return (
         <a href={"https://danbooru.donmai.us/posts/" + href} target={'_blank'} className='group transition ease-in-out sm:hover:scale-105 relative' rel="noreferrer">
-            <div className='overflow-hidden bg-slate-100 drop-shadow-xl rounded-0 sm:rounded-lg sm:w-80 h-64 w-screen'>
+            <div className='overflow-hidden bg-slate-100 drop-shadow-xl rounded-0 sm:rounded-lg sm:w-96 h-72 w-screen'>
                 <img
                 src={previewImage}
                 alt={altImage}
@@ -20,4 +21,4 @@ function ImageCard(props) {
     );
 }
 
-export default ImageCard;
+export default GalleryCarousel;
