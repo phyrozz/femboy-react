@@ -79,6 +79,20 @@
         },
         {
             "hasDoujins": true,
+            "name": "Scaramouche (Wanderer)",
+            "thumbImg": "scaramouche_thumb.jpg",
+            "source": "https://twitter.com/kwakah/status/1632337348259385344",
+            "doujinUrl": "https://nhentai.net/search/?q=scaramouche"
+        },
+        {
+            "hasDoujins": true,
+            "name": "Lio Fotia",
+            "thumbImg": "lio_fotia_thumb.jpg",
+            "source": "https://www.pixiv.net/artworks/94544184",
+            "doujinUrl": "https://nhentai.net/search/?q=lio+fotia"
+        },
+        {
+            "hasDoujins": true,
             "name": "Tighnari",
             "thumbImg": "tighnari_thumb.jpg",
             "source": "https://twitter.com/mzc1785/status/1698642120414998676",
@@ -106,6 +120,13 @@
             "doujinUrl": "https://nhentai.net/search/?q=kazuha+kaedehara"
         },
         {
+            "hasDoujins": true,
+            "name": "Gorou",
+            "thumbImg": "gorou_thumb.jpg",
+            "source": "https://www.pixiv.net/artworks/108866923",
+            "doujinUrl": "https://nhentai.net/search/?q=gorou+genshin"
+        },
+        {
             "hasDoujins": false,
             "name": "Akiyama Mizuki",
             "thumbImg": "mizuki_thumb.jpg",
@@ -117,13 +138,6 @@
             "thumbImg": "urushibara_ruka_thumb.jpg",
             "source": "https://twitter.com/thikoojisan/status/1543420402138898432",
             "doujinUrl": "https://nhentai.net/search/?q=urushibara+ruka"
-        },
-        {
-            "hasDoujins": true,
-            "name": "Gorou",
-            "thumbImg": "gorou_thumb.jpg",
-            "source": "https://www.pixiv.net/artworks/108866923",
-            "doujinUrl": "https://nhentai.net/search/?q=gorou+genshin"
         },
         {
             "hasDoujins": true,
@@ -149,13 +163,6 @@
             "name": "Mihate Hiura",
             "thumbImg": "mihate_hiura_thumb.jpg",
             "source": "https://www.pixiv.net/artworks/97841590"
-        },
-        {
-            "hasDoujins": true,
-            "name": "Scaramouche (Wanderer)",
-            "thumbImg": "scaramouche_thumb.jpg",
-            "source": "https://twitter.com/kwakah/status/1632337348259385344",
-            "doujinUrl": "https://nhentai.net/search/?q=scaramouche"
         },
         {
             "hasDoujins": true,
