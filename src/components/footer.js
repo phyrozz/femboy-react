@@ -8,7 +8,7 @@ function Footer() {
     return (
         <div className='bg-slate-50 pb-10 p-4 text-center flex justify-around items-center'>
             <div>
-                <p className='font-light text-2xl'>femboys.io</p>
+                <p className='font-light text-2xl'>femboys.info</p>
                 <p className='text-sm'>Developed by Phyrozz</p>
             </div>
             <div className='flex gap-4'>
