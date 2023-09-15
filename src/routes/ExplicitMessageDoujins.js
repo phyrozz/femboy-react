@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function ExplicitMessage() {
+function ExplicitMessageDoujins() {
   const navigate = useNavigate();
 
   const goBack = () => {
@@ -12,7 +12,7 @@ function ExplicitMessage() {
   const handleProceedClick = () => {
     // Set a session flag to indicate that the page has been visited.
     sessionStorage.setItem('visitedOneTimePage', "true");
-    navigate('/gallery');
+    navigate('/doujins');
     navigate(0);
   };
 
@@ -31,4 +31,4 @@ function ExplicitMessage() {
   );
 }
 
-export default ExplicitMessage;
+export default ExplicitMessageDoujins;

@@ -49,13 +49,13 @@ function Home() {
             alt='https://www.pixiv.net/artworks/66063427'
             className="object-cover bg-blend-darken opacity-50 w-full h-full"
             />
-            <ScrollDown className='flex flex-row gap-2 justify-center items-center absolute bottom-10 left-1/2 -translate-x-1/2 -translate-y-1/2' />
+            <ScrollDown className='flex flex-row gap-2 justify-center items-center absolute bottom-24 sm:bottom-10 left-1/2 -translate-x-1/2 -translate-y-1/2' />
             <div className='absolute top-1/2 left-3 -translate-y-1/2 w-3/4 md:w-1/2 text-left'>
                 <TypeAnimation className='mt-4 text-slate-100 font-thin text-5xl md:text-7xl' sequence={[randomText]} />
                 <p className='mt-5 text-sm text-slate-100 font-thin md:text-xl'>From Astolfo of Fate Series to Mahiro-tan, all of your favorite femboy characters in anime/manga are here for you to explore and even discover!</p>
             </div>
         </div>
-        <div className='flex gap-0 lg:gap-4 p-0 lg:p-5 flex-wrap justify-center bg-pink-200'>
+        <div className='flex gap-0 sm:gap-4 p-0 sm:p-5 flex-wrap justify-center bg-pink-200'>
             <Card href='/gallery' headerText='Gallery' text='Check out artworks of your favorite femboy character.' image='mahiro-card.jpg' altImage='https://twitter.com/ixy/status/1700066663868375195' icon={galleryIcon} />
             <Card href='/doujins' headerText='Doujins' text='Check out doujins of your favorite femboy character.' image='bridget-card.jpg' altImage='https://twitter.com/click_burgundy/status/1698206122853978427' icon={doujinIcon} />
             <Card href='/explore' headerText='Explore' text='Explore the site and discover more femboys.' image='venti-card.jpg' altImage='https://twitter.com/mashiraion/status/1700992548439998835' icon={exploreIcon} />

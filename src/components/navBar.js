@@ -11,16 +11,18 @@ const exploreIcon = <FontAwesomeIcon icon={faCompass} />
 
 function Navbar() {
   const [isNavbarOpaque, setIsNavbarOpaque] = useState(true);
+  const [isTextVisible, setIsTextVisible] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
-    // Check if the current route is "/home"
     if (location.pathname === '/') {
       const handleScroll = () => {
-        if (window.scrollY > 30) {
+        if (window.scrollY > window.innerHeight - 58) {
           setIsNavbarOpaque(false);
+          setIsTextVisible(false);
         } else {
           setIsNavbarOpaque(true);
+          setIsTextVisible(true);
         }
       };
 
@@ -30,8 +32,28 @@ function Navbar() {
         window.removeEventListener('scroll', handleScroll);
       };
     } else {
-      // If not on "/home", set the navbar to always be pink
       setIsNavbarOpaque(false);
+      const handleScroll = () => {
+        if (window.innerWidth >= 640) {
+          if (window.scrollY > 384) {
+            setIsTextVisible(false);
+          } else {
+            setIsTextVisible(true);
+          }
+        } else {
+          if (window.scrollY > window.innerHeight - 58) {
+            setIsTextVisible(false);
+          } else {
+            setIsTextVisible(true);
+          }
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
     }
   }, [location]);
 
@@ -45,29 +67,29 @@ function Navbar() {
         <ul className="flex justify-center">
           <a href='/'>
             <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
-              {homeIcon}<p>Home</p>
+              {homeIcon}<p className={`${isTextVisible ? 'block' : 'hidden'}`}>Home</p>
             </li>
           </a>
           <a href='/gallery'>
             <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
-              {galleryIcon}<p>Gallery</p>
+              {galleryIcon}<p className={`${isTextVisible ? 'block' : 'hidden'}`}>Gallery</p>
             </li>
           </a>
           <a href='/doujins'>
             <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
-              {doujinIcon}<p>Doujins</p>
+              {doujinIcon}<p className={`${isTextVisible ? 'block' : 'hidden'}`}>Doujins</p>
             </li>
           </a>
           <a href='/explore'>
             <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
-              {exploreIcon}<p>Explore</p>
+              {exploreIcon}<p className={`${isTextVisible ? 'block' : 'hidden'}`}>Explore</p>
             </li>
           </a>
         </ul>
         <a className='px-2 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row' href="https://discord.gg/CKhwKtDK" target='_blank' rel="noreferrer">
           <p className='hidden md:block'>Join the Community</p>
           <img src={discordIconImage} alt="Discord Icon" className="w-5" />
-          <p className='block md:hidden'>Join</p>
+          <p className={`block md:hidden ${isTextVisible ? 'block' : 'hidden'}`}>Join</p>
         </a>
       </div>
     </nav>

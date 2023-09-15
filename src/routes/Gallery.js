@@ -104,8 +104,8 @@ function Gallery() {
   return (
     <>
       <Navbar />
-      {currentPage === 1 && <PageHeader />}
-      <div className={"flex gap-0 sm:gap-4 flex-wrap justify-center z-50 bg-pink-200" + (currentPage === 1 ? " sm:pt-6 pt-0" : " sm:pt-24 pt-16")}>
+      {currentPage === 1 && <PageHeader text='Gallery' description='All artworks. All femboys!' bgImage={require('../images/gallery_container.png')} altBgImage='https://www.pixiv.net/artworks/95990095' />}
+      <div className={"sm:flex grid grid-cols-2 gap-0 sm:gap-4 flex-wrap justify-center bg-pink-200" + (currentPage === 1 ? " sm:pt-6 pt-0" : " sm:pt-24 pt-16")}>
         {posts && posts.map(post => (
           <ImageCard
             key={post.id}
