@@ -41,3 +41,19 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.character-card-container {
+  position: relative;
+}
+
+.modal-open {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-closed {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}

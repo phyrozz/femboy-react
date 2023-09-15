@@ -5,20 +5,25 @@ import PageHeader from '../components/pageHeader';
 import characters from '../data/characters.json';
 import CharacterCard from '../components/characterCard';
 import Footer from '../components/footer';
+import CharacterModal from '../components/characterModal';
 
 function Explore() {
   const [sortCriteria, setSortCriteria] = useState('popularity'); // Default sorting criteria
-  const [sortOrder, setSortOrder] = useState('ascending'); // Default sorting order
+  const [sortOrder, setSortOrder] = useState('descending'); // Default sorting order
+  const [selectedCharacter, setSelectedCharacter] = useState(null);
 
   // Function to sort characters based on the selected criteria and order
   const sortedCharacters = () => {
     let sorted = [...characters.character];
     if (sortCriteria === 'popularity') {
       sorted = sorted.sort((a, b) => {
+        const aCount = a.post_count ? a.post_count : 0;
+        const bCount = b.post_count ? b.post_count : 0;
+
         if (sortOrder === 'ascending') {
-          return a.popularity - b.popularity;
+          return aCount - bCount;
         } else {
-          return b.popularity - a.popularity;
+          return bCount - aCount;
         }
       });
     } else if (sortCriteria === 'name') {
@@ -31,6 +36,16 @@ function Explore() {
       });
     }
     return sorted;
+  };
+
+  const generateRankBadge = (index) => {
+    if (sortCriteria === 'popularity' && sortOrder === 'descending') {
+      const ranks = ['1st', '2nd', '3rd', '4th', '5th'];
+      if (index < ranks.length) {
+        return <div className={`${index === 0 || index === 1 || index === 2 ? 'bg-pink-400' : 'bg-sky-400'} text-slate-50 absolute z-20 right-0 px-5 rounded-bl-xl py-1 sm:rounded-tr-lg shadow-md font-bold`}>{ranks[index]}</div>;
+      }
+    }
+    return null;
   };
 
   return (
@@ -75,20 +90,28 @@ function Explore() {
       </div>
       <div className='sm:flex gap-0 sm:gap-4 p-0 sm:p-5 flex-wrap justify-center bg-pink-200 grid grid-cols-2'>
         {/* Render sorted CharacterCards */}
-        {sortedCharacters().map((character) => {
+        {sortedCharacters().map((character, index) => {
           return (
-            <CharacterCard
-              key={character.name}
-              text={character.name}
-              bgImage={character.thumbImg}
-              altBgImage={character.altBgImage}
-              href={''}
-              isTargetBlank={false}
-            />
+            <div key={character.name} className="character-card-container">
+              {generateRankBadge(index)}
+              <CharacterCard
+                text={character.name}
+                bgImage={character.thumbImg}
+                altBgImage={character.altBgImage}
+                href={''}
+                isTargetBlank={false}
+                isLink={false}
+                onClick={() => setSelectedCharacter(character)}
+              />
+            </div>
           );
         })}
       </div>
       <Footer />
+      {/* Render the CharacterModal if a character is selected */}
+      {selectedCharacter && (
+        <CharacterModal character={selectedCharacter} onClose={() => setSelectedCharacter(null)} />
+      )}
     </>
   );
 }
