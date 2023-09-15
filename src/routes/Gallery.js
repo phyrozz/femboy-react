@@ -7,6 +7,7 @@ import { SyncLoader } from 'react-spinners';
 import PageHeader from '../components/pageHeader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesLeft, faAnglesRight } from '@fortawesome/free-solid-svg-icons';
+import Footer from '../components/footer';
 
 const anglesLeftIcon = <FontAwesomeIcon icon={faAnglesLeft} />;
 const anglesRightIcon = <FontAwesomeIcon icon={faAnglesRight} />;
@@ -115,7 +116,7 @@ function Gallery() {
           />
         ))}
       </div>
-      <div className="flex justify-center py-4 bg-pink-200 text-xs sm:text-base">
+      <div className="flex justify-center py-8 bg-pink-200 text-xs sm:text-base">
         <button
           className={`mr-1 sm:mr-2 bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-2 sm:px-4 rounded-xl transition-all ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
           onClick={firstPage}
@@ -150,6 +151,7 @@ function Gallery() {
           {anglesRightIcon}
         </button>
       </div>
+      <Footer />
     </>
   );
 }

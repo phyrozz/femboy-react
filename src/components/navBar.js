@@ -66,27 +66,27 @@ function Navbar() {
       <div className="container mx-auto flex justify-between items-center">
         <ul className="flex justify-center">
           <a href='/'>
-            <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
+            <li className={`${isTextVisible ? 'px-2' : 'px-5' } sm:px-7 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row`}>
               {homeIcon}<p className={`${isTextVisible ? 'block' : 'hidden'}`}>Home</p>
             </li>
           </a>
           <a href='/gallery'>
-            <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
+            <li className={`${isTextVisible ? 'px-2' : 'px-5' } sm:px-7 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row`}>
               {galleryIcon}<p className={`${isTextVisible ? 'block' : 'hidden'}`}>Gallery</p>
             </li>
           </a>
           <a href='/doujins'>
-            <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
+            <li className={`${isTextVisible ? 'px-2' : 'px-5' } sm:px-7 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row`}>
               {doujinIcon}<p className={`${isTextVisible ? 'block' : 'hidden'}`}>Doujins</p>
             </li>
           </a>
           <a href='/explore'>
-            <li className="px-3 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row">
+            <li className={`${isTextVisible ? 'px-2' : 'px-5' } sm:px-7 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row`}>
               {exploreIcon}<p className={`${isTextVisible ? 'block' : 'hidden'}`}>Explore</p>
             </li>
           </a>
         </ul>
-        <a className='px-2 sm:px-5 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row' href="https://discord.gg/CKhwKtDK" target='_blank' rel="noreferrer">
+        <a className={`${isTextVisible ? 'px-2' : 'px-5' } sm:px-7 py-3 hover:bg-pink-600 cursor-pointer transition text-center flex gap-1 sm:gap-2 justify-center items-center flex-col sm:flex-row`} href="https://discord.gg/CKhwKtDK" target='_blank' rel="noreferrer">
           <p className='hidden md:block'>Join the Community</p>
           <img src={discordIconImage} alt="Discord Icon" className="w-5" />
           <p className={`block md:hidden ${isTextVisible ? 'block' : 'hidden'}`}>Join</p>
