@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import characters from '../data/characters.json';
 
 const extLinkIcon = <FontAwesomeIcon icon={faArrowUpRightFromSquare} />;
+const maxPostCount = Math.max(...characters.character.map(character => character.post_count));
 
 function CharacterModal({ character, onClose }) {
   const [isOpen, setIsOpen] = useState(true);
@@ -13,6 +15,18 @@ function CharacterModal({ character, onClose }) {
   };
 
   const modalClass = isOpen ? 'modal-open' : 'modal-closed';
+
+  // Function to calculate popularity rating based on post count
+  const calculatePopularityRating = (postCount) => {
+    // Apply a logarithmic transformation to the post count
+    const logPostCount = Math.log10(postCount + 1); // Adding 1 to avoid log(0)
+    // Scale the logPostCount to be from 0 to 10.0 based on the max post count
+    const rating = (logPostCount / Math.log10(maxPostCount + 1)) * 10.0;
+    return Number(rating.toFixed(2));
+  };
+
+  // Calculate popularity rating
+  const popularityRating = calculatePopularityRating(character.post_count);
 
   return (
     <>
@@ -39,7 +53,11 @@ function CharacterModal({ character, onClose }) {
         </div>
         <div className="modal-content py-4 px-4 text-left flex flex-col justify-between">
             <div>
-                <h2 className="text-3xl font-semibold mb-4">{character.name}</h2>
+                <h2 className="text-3xl font-semibold">{character.name}</h2>
+                <div className="text-gray-500 text-lg mb-4 font-thin">{character.characterSource}</div>
+                <div className="text-gray-500 text-sm mb-4">
+                  Popularity: {popularityRating}
+                </div>
                 <p className="text-gray-700">{character.wikiDescription}</p>
             </div>
             <div className="text-right mt-6 flex gap-2 justify-end items-center">
