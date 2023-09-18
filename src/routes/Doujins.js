@@ -1,18 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../components/navBar';
 import '../App.css';
 import PageHeader from '../components/pageHeader';
-import characters from '../data/characters.json';
 import CharacterCard from '../components/characterCard';
 import Footer from '../components/footer';
+import { SyncLoader } from 'react-spinners';
+import axios from 'axios';
 
 function Doujins() {
   const [sortCriteria, setSortCriteria] = useState('popularity'); // Default sorting criteria
   const [sortOrder, setSortOrder] = useState('descending'); // Default sorting order
+  const [characters, setCharacters] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+    axios.get('https://femboys-react-api.vercel.app/') // Retrieve character data from a back-end API
+    .then(response => {
+      setCharacters(response.data);
+      setIsLoading(false);
+    })
+    .catch(error => {
+      console.error('Error fetching character data: ', error);
+      setIsLoading(true);
+    })
+  }, [])
 
   // Function to sort characters based on the selected criteria and order
   const sortedCharacters = () => {
-    let sorted = [...characters.character];
+    let sorted = [...characters];
     if (sortCriteria === 'popularity') {
       sorted = sorted.sort((a, b) => {
         const aCount = a.post_count ? a.post_count : 0;
@@ -45,6 +61,14 @@ function Doujins() {
     }
     return null;
   };
+
+  if (isLoading) {
+    return (
+      <div className='flex flex-col justify-center items-center gap-5 h-screen'>
+        <SyncLoader loading={isLoading} size={30} color="rgb(219, 39, 119)" />
+      </div>
+    );
+  }
 
   return (
     <>

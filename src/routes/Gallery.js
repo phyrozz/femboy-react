@@ -35,7 +35,7 @@ function Gallery() {
       })
       .catch(error => {
         console.error(error);
-        setIsLoading(false); // Set loading to false in case of an error
+        setIsLoading(true);
       });
   };
 
