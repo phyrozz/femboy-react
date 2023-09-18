@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-import characters from '../data/characters.json';
 
 const extLinkIcon = <FontAwesomeIcon icon={faArrowUpRightFromSquare} />;
-const maxPostCount = Math.max(...characters.character.map(character => character.post_count));
 
-function CharacterModal({ character, onClose }) {
+function CharacterModal({ character, maxPostCount, onClose }) {
   const [isOpen, setIsOpen] = useState(true);
 
   const closeModal = () => {
@@ -18,6 +16,10 @@ function CharacterModal({ character, onClose }) {
 
   // Function to calculate popularity rating based on post count
   const calculatePopularityRating = (postCount) => {
+    if (maxPostCount === null) {
+      return null;
+    }
+  
     // Apply a logarithmic transformation to the post count
     const logPostCount = Math.log10(postCount + 1); // Adding 1 to avoid log(0)
     // Scale the logPostCount to be from 0 to 10.0 based on the max post count
@@ -25,7 +27,6 @@ function CharacterModal({ character, onClose }) {
     return Number(rating.toFixed(2));
   };
 
-  // Calculate popularity rating
   const popularityRating = calculatePopularityRating(character.post_count);
 
   return (

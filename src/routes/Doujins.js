@@ -15,7 +15,7 @@ function Doujins() {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get('https://femboys-react-api.vercel.app/') // Retrieve character data from a back-end API
+    axios.get('https://femboys-react-api.vercel.app/characters') // Retrieve character data from a back-end API
     .then(response => {
       setCharacters(response.data);
       setIsLoading(false);

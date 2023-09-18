@@ -14,13 +14,22 @@ function Explore() {
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [maxPostCount, setMaxPostCount] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get('https://femboys-react-api.vercel.app/')
+    axios.get('https://femboys-react-api.vercel.app/characters')
     .then(response => {
       setCharacters(response.data);
-      setIsLoading(false);
+      axios.get('https://femboys-react-api.vercel.app/maxPostCount')
+      .then(response => {
+        setMaxPostCount(response.data.maxPostCount);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching data: ', error);
+        setIsLoading(true);
+      })
     })
     .catch(error => {
       console.error('Error fetching character data: ', error);
@@ -135,7 +144,7 @@ function Explore() {
       <Footer />
       {/* Render the CharacterModal if a character is selected */}
       {selectedCharacter && (
-        <CharacterModal character={selectedCharacter} onClose={() => setSelectedCharacter(null)} />
+        <CharacterModal character={selectedCharacter} maxPostCount={maxPostCount} onClose={() => setSelectedCharacter(null)} />
       )}
     </>
   );
